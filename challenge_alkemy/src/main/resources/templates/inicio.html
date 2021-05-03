@@ -1,0 +1,122 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head th:replace="layouts/baseLayouts::head"> </head>
+
+<body>
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="/">Alkemy Challenge</a>
+</nav>
+
+    <!-- Navbar-->
+<header class="header">
+    <nav class="navbar navbar-expand-lg navbar-light py-3">
+        <div class="container">
+            <!-- Navbar Brand -->
+            <a href="#" class="navbar-brand">
+                <img src="https://www.alkemy.org/assets/images/logo-header.png" alt="logo" width="150">
+            </a>
+        </div>
+    </nav>
+</header>
+
+
+<div class="container">
+    <div class="row py-5 mt-4 align-items-center">
+        <!-- For Demo Purpose -->
+        <div class="col-md-5 pr-lg-5 mb-5 mb-md-0">
+            <img src="https://res.cloudinary.com/mhmd/image/upload/v1569543678/form_d9sh6m.svg" alt="" class="img-fluid mb-3 d-none d-md-block">
+            <h1>Create an Account</h1>
+            <p class="font-italic text-muted mb-0">Use to manage enrollment in courses.</p>
+        </div>
+
+        <!-- Registeration Form -->
+        <div class="col-md-7 col-lg-6 ml-auto">
+            <form th:action="@{/}" th:object="${user}" method="POST">
+                <div class="row">
+
+                    <!-- First Name -->
+                    <div class="input-group col-lg-6 mb-4">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text bg-white px-4 border-md border-right-0">
+                                <i class="fa fa-user text-muted"></i>
+                            </span>
+                        </div>
+                        <input type="text" placeholder="Name" class="form-control col-md-7" th:field="*{name}"/>
+                        <small th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></small>
+                    </div>
+
+                    <!-- Last Name -->
+                    <div class="input-group col-lg-6 mb-4">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text bg-white px-4 border-md border-right-0">
+                                <i class="fa fa-user text-muted"></i>
+                            </span>
+                        </div>
+                        <input type="text" placeholder="Last Name" class="form-control col-md-7" th:field="*{lastname}"/>
+                        <small th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}"></small>
+                    </div>
+
+                    
+                    <!-- Email Address -->
+                    <div class="input-group col-lg-12 mb-4">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text bg-white px-4 border-md border-right-0">
+                                <i class="fa fa-envelope text-muted"></i>
+                            </span>
+                        </div>
+                        <input type="text" placeholder="Email Address" class="form-control col-md-7" th:field="*{email}"/>
+                        <small th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></small>
+                    </div>
+                    
+                    <!-- Username -->
+                    <div class="input-group col-lg-6 mb-4">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text bg-white px-4 border-md border-right-0">
+                                <i class="fa fa-user text-muted"></i>
+                            </span>
+                        </div>
+                        <input type="text" placeholder="Legaje" class="form-control col-md-7" th:field="*{username}"/>
+                        <small th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></small>
+                    </div>
+                    
+                    <!-- Password -->
+                    <div class="input-group col-lg-6 mb-4">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text bg-white px-4 border-md border-right-0">
+                                <i class="fa fa-lock text-muted"></i>
+                            </span>
+                        </div>
+                        <input type="text" placeholder="Password" class="form-control col-md-7" th:field="*{password}"/>
+                        <small th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></small>
+                    </div>
+                    
+                    <!-- Role -->
+                    <div class="input-group col-lg-6 mb-4">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text bg-white px-4 border-md border-right-0">
+                                <i class="fa fa-lock text-muted"></i>
+                            </span>
+                        </div>
+                        <input type="text" placeholder="Role:'ADMIN'or'USER'" class="form-control col-md-7" th:field="*{roles}"/>
+                        <small th:if="${#fields.hasErrors('roles')}" th:errors="*{roles}"></small>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="row form-group">
+                        <input type="submit" class="btn btn-success btn-black col-md-7 offset-3" value="Register"/>
+                    </div>
+
+                    <!-- Already Registered -->
+                    <div class="text-center w-100">
+                        <p class="text-muted font-weight-bold">Already Registered? <a th:href="@{/login}" class="text-primary ml-2">Login</a></p>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

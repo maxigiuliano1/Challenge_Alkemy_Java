@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layouts/baseLayouts::head"> </head>
+
+<body>
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header"><h4>Register Materia</h4></div>
+                <div class="card-body">
+                    <form th:action="@{/admin/registerMateria}" th:object="${registerMateria" method="POST">
+                        <div class="row form-group">
+                            <label class="col-md-3">Name</label>
+                            <input type="text" class="form-control col-md-7" th:field="*{name}"/>
+                            <small th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></small>
+                        </div>
+                    
+                        <div class="row form-group">
+                            <label class="col-md-3">Time</label>
+                            <input type="text" class="form-control col-md-7" th:field="*{time}"/>
+                        </div>
+
+                        <div class="row form-group">
+                            <label class="col-md-3">Info</label>
+                            <input type="text" class="form-control col-md-7" th:field="*{info}"/>
+                        </div>
+
+                        <div class="row form-group">
+                            <label class="col-md-3">description</label>
+                            <input type="text" class="form-control col-md-7" th:field="*{description}"/>
+                        </div>
+
+                        <div class="row form-group">
+                            <label class="col-md-3">Id Teacher</label>
+                            <input type="text" class="form-control col-md-7" th:field="*{teacher.id}"/>
+                        </div>
+
+                        <div class="row form-group">
+                            <label class="col-md-3">Name Teacher</label>
+                            <input type="text" class="form-control col-md-7" th:field="*{teacher.name}"/>
+                        </div>
+
+                        <div class="row form-group">
+                            <label class="col-md-3">Last Name Teacher</label>
+                            <input type="text" class="form-control col-md-7" th:field="*{teacher.lastname}"/>
+                        </div>
+
+                        <div class="row form-group">
+                            <label class="col-md-3">Dni Teacher</label>
+                            <input type="text" class="form-control col-md-7" th:field="*{teacher.dni}"/>
+                        </div>
+
+                        <div class="row form-group">
+                            <label class="col-md-3">Active Teacher</label>
+                            <input type="text" class="form-control col-md-7" th:field="*{teacher.active}"/>
+                        </div>
+
+                        <div class="row form-group">
+                            <input type="submit" class="btn btn-success btn-black col-md-7 offset-3" value="Register"/>
+                        </div>
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+</body>
+</html>
+
+

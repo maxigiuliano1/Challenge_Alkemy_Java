@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layouts/baseLayouts::head"> </head>
+<body>
+
+    <a class="navbar-brand" href="/user/inicio">Inicio</a>
+    
+    
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th class="navbar-brand" scope="col"> Nombre </th>
+                <th class="navbar-brand" scope="col"> Codigo </th>
+                <th class="navbar-brand" scope="col"> Comercio </th>
+                <th class="navbar-brand" scope="col"> Direccion Comercio </th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr th:if="${list.empty}">
+                <td colspan="2"> No hay materias </td>
+            </tr>
+            <tr th:each="materia : ${list}">
+                <td><span th:text="${materia.name}"> Name </span></td>
+                <td><span th:text="${materia.time}"> Time </span></td>
+                <td><span th:text="${materia.info}"> Indo </span></td>
+                <td><span th:text="${materia.description}"> Description</span></td>
+                <td><span th:text="${materia.teacher.name}"> Description</span></td>
+                <td><span th:text="${materia.teacher.lastname}"> Description</span></td>
+                <td><span th:text="${materia.studentQuota}"> Description</span></td>         
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
